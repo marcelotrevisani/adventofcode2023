@@ -47,4 +47,36 @@ int getValidGame(const std::string& line) {
     }
     return gameId;
 }
+
+int solution2(const std::string& allInput) {
+    std::istringstream iss(allInput);
+    std::string line;
+    int result = 0;
+    while(std::getline(iss, line)){
+        result += getPowerBlocks(line);
+    }
+    return result;
+}
+
+int getPowerBlocks(const std::string& line) {
+    std::pmr::unordered_map<std::string, int> colorBlocks = {
+        {"red", 0},
+        {"green", 0},
+        {"blue", 0},
+    };
+    std::regex re_blocks("(\\d+)\\s+(red|green|blue)");
+    std::stringstream lineStream(line);
+    std::string block;
+    std::vector<std::string> listBlocks;
+    while(std::getline(lineStream, block, ';')){
+        std::smatch matchBlock;
+        for (std::sregex_iterator it = std::sregex_iterator(block.begin(), block.end(), re_blocks);
+     it != std::sregex_iterator(); ++it){
+            std::smatch colVal = *it;
+            colorBlocks[colVal.str(2)] = std::max(std::stoi(colVal.str(1)), colorBlocks[colVal.str(2)]);
+        }
+    }
+    return colorBlocks["red"] * colorBlocks["green"] * colorBlocks["blue"];
+}
+
 }
