@@ -11,13 +11,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-# Main application executable
-add_executable(cpp main.cpp day1.cpp)
+add_executable(cpp main.cpp day1.cpp day2.cpp)
 
-# Test executable - include day1.cpp here
 add_executable(day1_test day1_test.cpp day1.cpp)
+add_executable(day2_test day2_test.cpp day2.cpp)
 target_link_libraries(day1_test gtest_main)
+target_link_libraries(day2_test gtest_main)
 
-# Enable testing and declare a test
 enable_testing()
 add_test(NAME day1_test COMMAND day1_test)
+add_test(NAME day2_test COMMAND day2_test)
