@@ -11,13 +11,16 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-add_executable(cpp main.cpp day1.cpp day2.cpp)
 
-add_executable(day1_test day1_test.cpp day1.cpp)
-add_executable(day2_test day2_test.cpp day2.cpp)
+add_executable(day1_test day1_test.cpp day1.cpp utils.cpp)
+add_executable(day2_test day2_test.cpp day2.cpp utils.cpp)
+add_executable(day3_test day3_test.cpp day3.cpp utils.cpp)
+
 target_link_libraries(day1_test gtest_main)
 target_link_libraries(day2_test gtest_main)
+target_link_libraries(day3_test gtest_main)
 
 enable_testing()
 add_test(NAME day1_test COMMAND day1_test)
 add_test(NAME day2_test COMMAND day2_test)
+add_test(NAME day3_test COMMAND day3_test)
