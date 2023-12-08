@@ -9,7 +9,7 @@ Distance:  9  40  200"""
 
 def test_solution1(shared_datadir):
     all_input = (shared_datadir / "day6.txt").read_text()
-    assert solution1(all_input) == 0
+    assert solution1(all_input) == 505494
 
 
 def test_solution2():
