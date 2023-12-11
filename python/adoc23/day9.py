@@ -19,3 +19,12 @@ def solution1(all_input: str) -> int:
         all_num = [int(num) for num in re_num.findall(line)]
         result += find_next_number(all_num)
     return result
+
+
+def solution2(all_input: str) -> int:
+    re_num = re.compile(r"([-]*\d+)")
+    result = 0
+    for line in all_input.splitlines():
+        all_num = [int(num) for num in reversed(re_num.findall(line))]
+        result += find_next_number(all_num)
+    return result
