@@ -12,7 +12,7 @@ def test_solution1(shared_datadir):
     assert solution1(all_input) == 505494
 
 
-def test_solution2():
+def test_solution2_simple():
     all_input = """Time:      7  15   30
     Distance:  9  40  200"""
     assert solution2(all_input) == 71503
