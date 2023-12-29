@@ -1,9 +1,3 @@
-import bisect
-import re
-from collections import defaultdict
-from operator import itemgetter
-
-
 def solution1(all_input: str) -> int:
     all_input = list(all_input.splitlines())
     starting_point = (0, 0)
